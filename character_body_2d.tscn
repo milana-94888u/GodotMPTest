@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dw6dp6fcanobf"]
+
+[ext_resource type="Texture2D" uid="uid://br0vw8dj0t41d" path="res://icon.svg" id="1_265ij"]
+[ext_resource type="Script" path="res://character_body_2d.gd" id="1_in6eo"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_bpyam"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_in6eo")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("1_265ij")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_bpyam")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false

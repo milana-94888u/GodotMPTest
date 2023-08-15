@@ -1,0 +1,6 @@
+ColorRect
+Camera2D
+MultiplayerSynchronizer
+MultiplayerSpawner
+CharacterBody2D
+Button

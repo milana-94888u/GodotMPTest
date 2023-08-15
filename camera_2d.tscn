@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://de05vd305i210"]
+
+[ext_resource type="Script" path="res://camera_2d.gd" id="1_xvwqu"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_sk5se"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/0/watch = false
+
+[node name="Camera2D" type="Camera2D"]
+position = Vector2(568, 310)
+enabled = false
+script = ExtResource("1_xvwqu")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_sk5se")

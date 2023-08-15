@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://qyeov54quebk"]
+
+[ext_resource type="Script" path="res://multiplayer_test.gd" id="1_min4d"]
+[ext_resource type="PackedScene" uid="uid://dw6dp6fcanobf" path="res://character_body_2d.tscn" id="2_lrfml"]
+[ext_resource type="PackedScene" uid="uid://de05vd305i210" path="res://camera_2d.tscn" id="3_a1o6x"]
+
+[node name="MultiplayerTest" type="Node2D"]
+script = ExtResource("1_min4d")
+player_scene = ExtResource("2_lrfml")
+camera_scene = ExtResource("3_a1o6x")
+
+[node name="JoinButton" type="Button" parent="."]
+offset_left = 27.0
+offset_top = 233.0
+offset_right = 64.0
+offset_bottom = 264.0
+text = "join"
+
+[node name="HostButton" type="Button" parent="."]
+offset_left = 19.0
+offset_top = 492.0
+offset_right = 62.0
+offset_bottom = 523.0
+text = "host
+"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://character_body_2d.tscn", "res://camera_2d.tscn")
+spawn_path = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = 154.0
+offset_top = 355.0
+offset_right = 256.0
+offset_bottom = 457.0
+
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
